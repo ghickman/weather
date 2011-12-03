@@ -2,6 +2,7 @@
 *.sw[o|p]
 bin
 client_media
+db.sqlite
 lib
 local_settings.py
 src
