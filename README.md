@@ -5,4 +5,5 @@
 
 # Requirements
 
-* 
+* model data as CSV for flood locations
+* interactive map - select region or flood event
