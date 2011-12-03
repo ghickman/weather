@@ -1,4 +1,3 @@
-register_#,annual_dfo,country,began,ended,days,deaths,displaced,damage_usd,main_cause,severity,sq_km,flood_magnitude_index,centroid_x,centroid_y
 384,15160,USA,1989/12/15,1990/1/15,32,0,,,See Notes,1,15.16,5.69,-152.61,61.275
 385,55380,Sri Lanka,1990/1/3,1990/1/14,12,33,150612,,Heavy rain,1,55.38,5.82,80.823,7.601
 386,86750,USA,1990/1/9,1990/1/11,3,4,3000,7200000,Heavy rain,2,86.75,5.72,-123.094,45.013
