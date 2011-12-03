@@ -1,0 +1,8 @@
+*.pyc
+*.sw[o|p]
+bin
+client_media
+lib
+local_settings.py
+src
+venv
