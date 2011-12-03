@@ -8,4 +8,11 @@ urlpatterns = patterns('',
     # url(r'^floods/', include('weather.floods.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('weather.floods.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
+         {'document_root': os.path.join(os.path.dirname(__file__), "media")}),
+    )
