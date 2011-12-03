@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.gis.db.models import FloatField
 
 class Flood(models.Model):
-    register_id = models.IntegerField()
+    # pk maps to register_#
     annual_dfo = models.IntegerField()
     country = models.TextField()
     began = models.datefield()
