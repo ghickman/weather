@@ -1,0 +1,15 @@
+html, body {
+	font-family: sans-serif;
+}
+
+header, footer {
+	display: block;
+	width: 100%;
+	border: 1px solid red;
+	text-align: center;
+}
+
+div.full-map {
+	width 80%;
+
+}
