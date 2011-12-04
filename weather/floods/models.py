@@ -16,4 +16,7 @@ class Flood(models.Model):
     flood_magnitude_index = models.DecimalField(decimal_places=9, max_digits=10)
     place = models.PointField()
 
+    def __unicode__(self):
+        return '%s to %s at %s' % (self.began, self.ended, self.place)
+
 
