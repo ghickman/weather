@@ -27,7 +27,8 @@
     var map = new OpenLayers.Map('map', {
 	  controls : [
       new OpenLayers.Control.LayerSwitcher(),
-      new OpenLayers.Control.PanZoom(),
+      new OpenLayers.Control.PanZoomBar(),
+      new OpenLayers.Control.ZoomToMaxExtent(),
       new OpenLayers.Control.ScaleLine(),
       new OpenLayers.Control.ArgParser(),
       new OpenLayers.Control.Attribution(),
@@ -48,10 +49,13 @@
     "Google Satellite",
     {type: google.maps.MapTypeId.SATELLITE}
   );
+  var grid = new OpenLayers.Layer.Vector(
+		"Data Region"
+  );
 
-		map.addLayers([gphy, gsat, ghyb]);
+		map.addLayers([gphy, gsat, ghyb, grid]);
 		var lonlat = new OpenLayers.LonLat(-138026.1791359, 6754611.1150493);
-	  map.setCenter(lonlat, 2);
+	  map.setCenter(lonlat, 5);
 	  
 </script>
 {% endblock scripts %}
