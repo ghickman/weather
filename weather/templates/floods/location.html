@@ -1,3 +1,8 @@
-{% extends base.html %}
+{% extends "floods/base.html" %}
 
-{% block  %}
+{% block content %}
+  <div class="location-summary">Data results for: {{locationName}}</div>
+  <div class="grid-map">Map showing floods here</div>
+  <div class="flood-list">List of floods in this location</div>
+  <div class="location-weather-graph">Graph of weather data at this location</div>
+{% endblock content %}

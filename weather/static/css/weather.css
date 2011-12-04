@@ -10,6 +10,40 @@ header, footer {
 }
 
 div.full-map {
+	border: 1px solid blue;
 	width 80%;
+	margin: 10px 10%;
+	height: 500px;
+}
 
+div.location-summary,
+div.flood-summary {
+	margin-top: 1em;
+}
+
+div.grid-map,
+div.flood-map {
+	width: 39%;
+	float: left;
+	margin: 10px 5%;
+	border: 1px solid purple;
+	height: 400px;
+}
+
+div.flood-list,
+div.flood-description {
+	border: 1px solid purple;
+	float: right;
+	margin: 10px 5%;
+	height: 400px;
+	width: 39%;
+}
+
+div.location-weather-graph,
+div.flood-weather-graph {
+	border: 1px solid green;
+	clear: both;
+	width: 80%;
+	margin: 10px 10%;
+	height: 150px;
 }
