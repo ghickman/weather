@@ -25,3 +25,10 @@
 input{
   height:auto;
 }
+
+.olControlGotoLocationControl{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #000;
+}

@@ -36,6 +36,47 @@
 			new OpenLayers.Control.Navigation(),
     ]
   });
+
+	    OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {                
+      defaultHandlerOptions: {
+        'single': true,
+        'double': false,
+        'pixelTolerance': 0,
+        'stopSingle': false,
+        'stopDouble': false
+      },
+
+      initialize: function(options) {
+        this.handlerOptions = OpenLayers.Util.extend(
+          {}, this.defaultHandlerOptions
+        );
+        OpenLayers.Control.prototype.initialize.apply(
+          this, arguments
+        ); 
+        this.handler = new OpenLayers.Handler.Click(
+          this, {
+              'click': this.trigger
+          }, this.handlerOptions
+        );
+      }
+    });          
+
+    var gotoLocationControl = new OpenLayers.Control.Click({
+      trigger: function(e) {
+        var lonlat = map.getLonLatFromViewPortPx(e.xy);
+        lonlat = lonlat.transform(map.getProjectionObject(), proj);
+        window.location = "/location/?lon=" + lonlat.lon + "&lat=" + lonlat.lat
+      },
+      displayClass: 'olControlGotoLocationControl'
+    });
+
+    var myNavToolbar = new OpenLayers.Control.Panel({ displayClass: 'olControlMyNavToolbar' });
+    myNavToolbar.addControls([
+      new OpenLayers.Control.Navigation(),
+      gotoLocationControl
+    ]);
+    map.addControl(myNavToolbar);
+
 	  
   var proj = new OpenLayers.Projection("EPSG:4326");
   var gphy = new OpenLayers.Layer.Google(
