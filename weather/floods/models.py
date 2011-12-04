@@ -1,8 +1,7 @@
-from django.db import models
-from django.contrib.gis.db.models import FloatField
+from django.contrib.gis.db import models
 
 class Flood(models.Model):
-    # pk maps to register_#
+    register_no = models.IntegerField()
     annual_dfo = models.IntegerField()
     country = models.TextField()
     began = models.DateField()
@@ -15,7 +14,9 @@ class Flood(models.Model):
     severity = models.IntegerField()
     sq_km = models.DecimalField(decimal_places=9, max_digits=10)
     flood_magnitude_index = models.DecimalField(decimal_places=9, max_digits=10)
-    centroid_x = FloatField()
-    centroid_y = FloatField()
+    place = models.PointField()
+
+    def __unicode__(self):
+        return '%s to %s at %s' % (self.began, self.ended, self.place)
 
 
