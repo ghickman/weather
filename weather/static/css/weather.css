@@ -1,49 +1,27 @@
-html, body {
-	font-family: sans-serif;
+
+
+#mapc{
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  
+  height:500px;
+  margin-top:2em;
+  padding:0;
+  position:relative;
+}
+#mapc.grid{
+  height:300px;
 }
 
-header, footer {
-	display: block;
-	width: 100%;
-	border: 1px solid red;
-	text-align: center;
+#grid_map{
+  
 }
 
-#map {
-	height: 400px;
-	border: 1px solid blue;
-	width: 80%;
-	margin: 10px 10%;
-}
-
-div.location-summary,
-div.flood-summary {
-	margin-top: 1em;
-}
-
-div.grid-map,
-div.flood-map {
-	width: 39%;
-	float: left;
-	margin: 10px 5%;
-	border: 1px solid purple;
-	height: 400px;
-}
-
-div.flood-list,
-div.flood-description {
-	border: 1px solid purple;
-	float: right;
-	margin: 10px 5%;
-	height: 400px;
-	width: 39%;
-}
-
-div.location-weather-graph,
-div.flood-weather-graph {
-	border: 1px solid green;
-	clear: both;
-	width: 80%;
-	margin: 10px 10%;
-	height: 150px;
+input{
+  height:auto;
 }

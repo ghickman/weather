@@ -1,5 +1,58 @@
 {% extends "floods/base.html" %}
 
 {% block content %}
-  <div id="map"></div> 
+<form class="form-stacked row">
+  
+  <div class="input span16">
+      <input type="text" placeholder="dd/mm/yyyy">
+      to
+      <input type="text" placeholder="dd/mm/yyyy">
+      
+      <input type="submit" value="search" class=" btn primary disabled" />
+      
+  </div>
+
+  <div id="mapc" class="span16">
+    <div id="map"></div>
+  </div>
+  
+</form>
+
+
 {% endblock content %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+    var map = new OpenLayers.Map('map', {
+	  controls : [
+      new OpenLayers.Control.LayerSwitcher(),
+      new OpenLayers.Control.PanZoom(),
+      new OpenLayers.Control.ScaleLine(),
+      new OpenLayers.Control.ArgParser(),
+      new OpenLayers.Control.Attribution(),
+      new OpenLayers.Control.Permalink()
+    ]
+  });
+	  
+  var proj = new OpenLayers.Projection("EPSG:4326");
+  var gphy = new OpenLayers.Layer.Google(
+    "Google Physical",
+    {type: google.maps.MapTypeId.TERRAIN, minZoomLevel: 5, maxZoomLevel: 15 }
+  );
+  var ghyb = new OpenLayers.Layer.Google(
+    "Google Hybrid",
+    {type: google.maps.MapTypeId.HYBRID, minZoomLevel: 5, maxZoomLevel: 19 }
+  );
+  var gsat = new OpenLayers.Layer.Google(
+    "Google Satellite",
+    {type: google.maps.MapTypeId.SATELLITE, minZoomLevel: 5, maxZoomLevel: 19 }
+  );
+
+		map.addLayers([gphy, gsat, ghyb]);
+		var lonlat = new OpenLayers.LonLat(10.2, 48.9);
+		lonlat = lonlat.transform(proj, map.getProjectionObject());
+	  map.setCenter(lonlat, 5);
+	  
+</script>
+{% endblock scripts %}

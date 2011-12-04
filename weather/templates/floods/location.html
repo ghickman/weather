@@ -1,8 +1,138 @@
 {% extends "floods/base.html" %}
 
 {% block content %}
-  <div class="location-summary">Data results for: {{locationName}}</div>
-  <div class="grid-map">Map showing floods here</div>
-  <div class="flood-list">List of floods in this location</div>
-  <div class="location-weather-graph">Graph of weather data at this location</div>
+<h1>Data results for {{locationName}}</h1>
+
+<div class="row">
+  <div class="grid span12">
+    <div class="row">
+      <div class="span6">
+        <h3>Map showing floods here</h3>
+        <div id="mapc" class="grid">
+          <div id="map"></div>
+        </div>
+      </div>
+      <div class="span6">
+        <h3>List of floods in this location</h3>
+        <table>
+          <tr>
+            <th>#</th>
+            <th>days</th>
+            <th>deaths</th>
+            <th>displaced</th>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <h3>Graph of weather data at this location</h3>
+        <div class="media-grid">
+          <a href='#' style="width:100%; height:4em"><!-- hack to get some sort of style --></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="span4">
+    <h2>Options</h2>
+    <form class="form-stacked">
+      <label>
+        <input type="checkbox"> Lorem ipsum dolor sit 
+      </label>
+      
+      <label>
+        <input type="checkbox"> consectetur adipisicing elit, 
+      </label>
+      
+      <label>
+        <input type="checkbox"> ullamco laboris nisi ut aliquip
+      </label>
+      
+      <label>
+        <input type="checkbox"> dolore eu fugiat nulla
+      </label>
+      
+      <label>
+        <input type="checkbox"> deserunt mollit anim id est 
+      </label>
+      
+      <input style="margin-top:1em" type="submit" class="btn" value="&raquo;">
+      
+    </form>
+  </div>
+</div>
 {% endblock content %}
+
+
+
+{% block scripts %}
+<script type="text/javascript">
+    var map = new OpenLayers.Map('map', {
+	  controls : [
+      new OpenLayers.Control.LayerSwitcher(),
+      new OpenLayers.Control.PanZoom(),
+      new OpenLayers.Control.ScaleLine(),
+      new OpenLayers.Control.ArgParser(),
+      new OpenLayers.Control.Attribution(),
+      new OpenLayers.Control.Permalink()
+    ]
+  });
+	  
+  var proj = new OpenLayers.Projection("EPSG:4326");
+  var gphy = new OpenLayers.Layer.Google(
+    "Google Physical",
+    {type: google.maps.MapTypeId.TERRAIN, minZoomLevel: 5, maxZoomLevel: 15 }
+  );
+  var ghyb = new OpenLayers.Layer.Google(
+    "Google Hybrid",
+    {type: google.maps.MapTypeId.HYBRID, minZoomLevel: 5, maxZoomLevel: 19 }
+  );
+  var gsat = new OpenLayers.Layer.Google(
+    "Google Satellite",
+    {type: google.maps.MapTypeId.SATELLITE, minZoomLevel: 5, maxZoomLevel: 19 }
+  );
+
+		map.addLayers([gphy, gsat, ghyb]);
+		var lonlat = new OpenLayers.LonLat(10.2, 48.9);
+		lonlat = lonlat.transform(proj, map.getProjectionObject());
+	  map.setCenter(lonlat, 5);
+	  
+</script>
+{% endblock scripts %}
