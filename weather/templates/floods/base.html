@@ -57,7 +57,7 @@
 
 				map.addLayers([gphy, gsat, ghyb]);
 				var lonlat = new OpenLayers.LonLat(10.2, 48.9);
-				lonlat = lonlat.transform(proj, map.getProjection());
+				lonlat = lonlat.transform(proj, map.getProjectionObject());
 			  map.setCenter(lonlat, 5);
     </script>
     {% endblock scripts %}
