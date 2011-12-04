@@ -3,6 +3,7 @@
 bin
 client_media
 db.sqlite
+include
 lib
 local_settings.py
 src
