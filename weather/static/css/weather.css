@@ -9,7 +9,7 @@ header, footer {
 	text-align: center;
 }
 
-div.full-map {
+div.map {
 	border: 1px solid blue;
 	width 80%;
 	margin: 10px 10%;
