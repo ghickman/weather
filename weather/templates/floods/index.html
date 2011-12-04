@@ -38,21 +38,20 @@
   var proj = new OpenLayers.Projection("EPSG:4326");
   var gphy = new OpenLayers.Layer.Google(
     "Google Physical",
-    {type: google.maps.MapTypeId.TERRAIN, minZoomLevel: 5, maxZoomLevel: 15 }
+    {type: google.maps.MapTypeId.TERRAIN}
   );
   var ghyb = new OpenLayers.Layer.Google(
     "Google Hybrid",
-    {type: google.maps.MapTypeId.HYBRID, minZoomLevel: 5, maxZoomLevel: 19 }
+    {type: google.maps.MapTypeId.HYBRID}
   );
   var gsat = new OpenLayers.Layer.Google(
     "Google Satellite",
-    {type: google.maps.MapTypeId.SATELLITE, minZoomLevel: 5, maxZoomLevel: 19 }
+    {type: google.maps.MapTypeId.SATELLITE}
   );
 
 		map.addLayers([gphy, gsat, ghyb]);
-		var lonlat = new OpenLayers.LonLat(10.2, 48.9);
-		lonlat = lonlat.transform(proj, map.getProjectionObject());
-	  map.setCenter(lonlat, 5);
+		var lonlat = new OpenLayers.LonLat(-138026.1791359, 6754611.1150493);
+	  map.setCenter(lonlat, 2);
 	  
 </script>
 {% endblock scripts %}
