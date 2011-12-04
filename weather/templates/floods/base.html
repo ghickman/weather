@@ -2,18 +2,28 @@
   <head>
     <title></title>
     {% block styles %}
+      <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
       <link rel="stylesheet" href="{{ STATIC_URL }}css/weather.css" />
     {% endblock styles %}
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 
   <body>
     {% block header %}
-    <header>Weather Mashup</header>
+    <div class="hero-unit">
+      <h1>Weather Mashup</h1>
+      <p>Created at Random Hacks of Kindness - <a href="https://twitter.com/#!/RHoKOxford">Oxford</a></p>
+    </div>
     {% endblock header %}
+    
+    <div class="container">
     {% block content %}
     {% endblock %}
+    </div>
+    
     {% block footer %}
-    <footer>Created at RHoK</footer>
     {% endblock footer %}
     {% block scripts %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

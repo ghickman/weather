@@ -1,5 +1,22 @@
 {% extends "floods/base.html" %}
 
 {% block content %}
-  <div id="map"></div> 
+<form class="form-stacked row">
+  
+  <div class="input span16">
+      <input type="text" placeholder="dd/mm/yyyy">
+      to
+      <input type="text" placeholder="dd/mm/yyyy">
+      
+      <input type="submit" value="search" class=" btn primary disabled" />
+      
+  </div>
+
+  <div id="mapc" class="span16">
+    <div id="map"></div>
+  </div>
+  
+</form>
+
+
 {% endblock content %}
